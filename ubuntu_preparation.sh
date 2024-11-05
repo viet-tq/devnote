@@ -1,24 +1,11 @@
 #!/bin/bash
 apt-get update
 apt-get upgrade -y
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 apt-get update
-apt-get install -y vim sublime-text build-essential ibus-unikey openssh-server vlc git meld arp-scan exfat-fuse exfat-utils
-cd ~/Downloads/
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable_current_amd64.deb
-apt-get install -y -f 
-rm -f  google-chrome-stable_current_amd64.deb
+apt-get install -y vim htop build-essential ibus-unikey openssh-server vlc git meld arp-scan exfat-fuse exfat-utils git virtualbox virtualbox-guest-additions-iso virtualbox-ext-pack
 
-wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-dpkg -i teamviewer_amd64.deb
-apt-get install -y -f 
-rm -f  teamviewer_amd64.deb
-apt-get -y autoremove
-
-#petalinux 2015.4 required packages
-apt-get install -y tofrodos iproute gawk gcc git-core make net-tools ncurses-dev libncurses5-dev  xinetd tftpd tftp zlib1g-dev flex bison lib32z1 lib32ncurses5 lib32stdc++6 libselinux1 
+#petalinux and vivado 2020.4 required packages
+apt-get install -y tofrodos gawk gcc git-core make net-tools ncurses-dev libncurses5-dev  xinetd tftpd tftp zlib1g-dev flex bison lib32z1  lib32stdc++6 libselinux1 xterm autoconf libtool texinfo gcc-multilib zlib1g:i386 libtinfo5 libcanberra-gtk-module libcanberra-gtk3-module
 ## TFTP setting
 cat > /etc/xinetd.d/tftp <<EOF
 service tftp
